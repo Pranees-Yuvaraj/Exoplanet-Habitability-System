@@ -41,7 +41,7 @@ documented and justified rather than hidden inside a model.
 - [x] Data acquisition (NASA Exoplanet Archive, TAP query)
 - [x] Data verification (shape, missingness, value-range sanity checks)
 - [x] Missingness analysis & inclusion criteria
-- [ ] Data cleaning & feature engineering (density proxy, stellar stability tiers)
+- [x] Data cleaning & feature engineering (density proxy, stellar stability tiers)
 - [ ] Scoring model — 6 weighted, normalized factors
 - [ ] Model validation against reference cases (Earth, Mars, Venus, known hot Jupiters)
 - [ ] Critique: EHS vs. NASA/PHL binary classification — find and visualize disagreements
