@@ -1,0 +1,5 @@
+pandas
+numpy
+astroquery
+streamlit
+plotly
