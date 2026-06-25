@@ -115,6 +115,7 @@ pip install -r requirements.txt
 jupyter notebook notebooks/01_Data_Acquisition.ipynb
 jupyter notebook notebooks/02_EDA_Missingness.ipynb
 jupyter notebook notebooks/03_Cleaning_Features.ipynb
+jupyter notebook notebooks/04_Scoring_Model.ipynb
 ```
 
 ---
