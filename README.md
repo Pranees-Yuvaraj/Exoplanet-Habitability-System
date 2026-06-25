@@ -122,6 +122,14 @@ jupyter notebook notebooks/04_Scoring_Model.ipynb
 
 ---
 
+## Future Improvements
+
+Atmospheric/greenhouse proxy factor — would require either better archive coverage
+of atmospheric data, or a derived signal (e.g. from stellar flux × distance ×
+expected greenhouse amplification) as a stand-in
+
+---
+
 ## License
 
 MIT
