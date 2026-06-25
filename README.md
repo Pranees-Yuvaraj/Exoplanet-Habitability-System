@@ -43,7 +43,7 @@ documented and justified rather than hidden inside a model.
 - [x] Missingness analysis & inclusion criteria
 - [x] Data cleaning & feature engineering (density proxy, stellar stability tiers)
 - [x] Scoring model — 6 weighted, normalized factors
-- [ ] Model validation against reference cases (Earth, Mars, Venus, known hot Jupiters)
+- [x] Model validation against reference cases (Earth, Mars, Venus, known hot Jupiters)
 - [ ] Critique: EHS vs. NASA/PHL binary classification — find and visualize disagreements
 - [ ] Interactive Streamlit app (live weight-adjustment "sandbox", radar charts)
 - [ ] Deployment (Streamlit Community Cloud)
@@ -97,7 +97,9 @@ EHS/
 │   ├── Session_01.md
 │   ├── Session_02.md
 │   ├── Session_03.md
-│   └── Session_04.md
+│   ├── Session_04.md
+│   ├── Session_05.md
+│   └── Session_06.md
 ├── .gitignore
 ├── LICENSE
 ├── README.md
