@@ -99,7 +99,8 @@ EHS/
 │   ├── Session_03.md
 │   ├── Session_04.md
 │   ├── Session_05.md
-│   └── Session_06.md
+│   ├── Session_06.md
+│   └── Session_07.md
 ├── .gitignore
 ├── LICENSE
 ├── README.md
