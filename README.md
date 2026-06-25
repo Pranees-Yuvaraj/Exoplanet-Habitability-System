@@ -40,7 +40,7 @@ documented and justified rather than hidden inside a model.
 
 - [x] Data acquisition (NASA Exoplanet Archive, TAP query)
 - [x] Data verification (shape, missingness, value-range sanity checks)
-- [ ] Missingness analysis & inclusion criteria
+- [x] Missingness analysis & inclusion criteria
 - [ ] Data cleaning & feature engineering (density proxy, stellar stability tiers)
 - [ ] Scoring model — 6 weighted, normalized factors
 - [ ] Model validation against reference cases (Earth, Mars, Venus, known hot Jupiters)
@@ -84,16 +84,19 @@ arbitrarily — see the scoring notebook once Phase 2 is complete.
 ```
 EHS/
 ├── data/
-│   └── raw_exoplanets.csv
+│   ├── raw_exoplanets.csv
+│   └── cleaned_exoplanets.csv
 ├── notebooks/
-│   └── 01_Data_Acquisition.ipynb
+│   ├── 01_Data_Acquisition.ipynb
+│   └── 02_Data_Wrangling.ipynb
+├── notes/
+│   ├── Session_01.md
+│   └── Session_02.md
 ├── .gitignore
 ├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
-
-_(Will expand as scoring logic, the critique comparison, and the Streamlit app are added.)_
 
 ---
 
@@ -104,6 +107,7 @@ git clone https://github.com/Pranees-Yuvaraj/Exoplanet-Habitability-System.git
 cd Exoplanet-Habitability-System
 pip install -r requirements.txt
 jupyter notebook notebooks/01_Data_Acquisition.ipynb
+jupyter notebook notebooks/02_Data_Wrangling.ipynb
 ```
 
 ---
