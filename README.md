@@ -85,13 +85,16 @@ arbitrarily — see the scoring notebook once Phase 2 is complete.
 EHS/
 ├── data/
 │   ├── raw_exoplanets.csv
-│   └── cleaned_exoplanets.csv
+│   ├── filtered_exoplanets.csv
+│   └── clean_exoplanets.csv
 ├── notebooks/
 │   ├── 01_Data_Acquisition.ipynb
-│   └── 02_Data_Wrangling.ipynb
+│   ├── 02_EDA_Missingness.ipynb
+│   └── 03_Cleaning_Features.ipynb
 ├── notes/
 │   ├── Session_01.md
-│   └── Session_02.md
+│   ├── Session_02.md
+│   └── Session_03.md
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -107,7 +110,8 @@ git clone https://github.com/Pranees-Yuvaraj/Exoplanet-Habitability-System.git
 cd Exoplanet-Habitability-System
 pip install -r requirements.txt
 jupyter notebook notebooks/01_Data_Acquisition.ipynb
-jupyter notebook notebooks/02_Data_Wrangling.ipynb
+jupyter notebook notebooks/02_EDA_Missingness.ipynb
+jupyter notebook notebooks/03_Cleaning_Features.ipynb
 ```
 
 ---
