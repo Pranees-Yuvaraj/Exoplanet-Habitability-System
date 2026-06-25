@@ -42,7 +42,7 @@ documented and justified rather than hidden inside a model.
 - [x] Data verification (shape, missingness, value-range sanity checks)
 - [x] Missingness analysis & inclusion criteria
 - [x] Data cleaning & feature engineering (density proxy, stellar stability tiers)
-- [ ] Scoring model — 6 weighted, normalized factors
+- [x] Scoring model — 6 weighted, normalized factors
 - [ ] Model validation against reference cases (Earth, Mars, Venus, known hot Jupiters)
 - [ ] Critique: EHS vs. NASA/PHL binary classification — find and visualize disagreements
 - [ ] Interactive Streamlit app (live weight-adjustment "sandbox", radar charts)
@@ -86,15 +86,18 @@ EHS/
 ├── data/
 │   ├── raw_exoplanets.csv
 │   ├── filtered_exoplanets.csv
-│   └── clean_exoplanets.csv
+│   ├── clean_exoplanets.csv
+│   └── scored_exoplanets_partial.csv
 ├── notebooks/
 │   ├── 01_Data_Acquisition.ipynb
 │   ├── 02_EDA_Missingness.ipynb
-│   └── 03_Cleaning_Features.ipynb
+│   ├── 03_Cleaning_Features.ipynb
+│   └── 04_Scoring_Model.ipynb
 ├── notes/
 │   ├── Session_01.md
 │   ├── Session_02.md
-│   └── Session_03.md
+│   ├── Session_03.md
+│   └── Session_04.md
 ├── .gitignore
 ├── LICENSE
 ├── README.md
