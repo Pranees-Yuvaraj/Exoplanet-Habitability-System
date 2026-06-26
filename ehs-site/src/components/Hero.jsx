@@ -1,3 +1,4 @@
+import { critiqueStats } from '../data/planets';
 import HeroPlanet from './HeroPlanet';
 import './Hero.css';
 
@@ -14,11 +15,11 @@ export default function Hero() {
         </h1>
         <p className="hero__sub">
           NASA's standard classification asks two questions: how hot, how big.
-          EHS asks six \u2014 and finds 938 plausible worlds the binary method misses.
+          EHS asks six - and finds {critiqueStats.disagreements.toLocaleString()} plausible worlds the binary method misses.
         </p>
         <div className="hero__stats">
           <div className="hero__stat">
-            <span className="hero__stat-value mono">5,757</span>
+            <span className="hero__stat-value mono">{critiqueStats.totalScored.toLocaleString()}</span>
             <span className="hero__stat-label">planets scored</span>
           </div>
           <div className="hero__stat">
@@ -26,7 +27,7 @@ export default function Hero() {
             <span className="hero__stat-label">weighted factors</span>
           </div>
           <div className="hero__stat">
-            <span className="hero__stat-value mono">16.3%</span>
+            <span className="hero__stat-value mono">{critiqueStats.disagreementPct}%</span>
             <span className="hero__stat-label">disagreement rate</span>
           </div>
         </div>

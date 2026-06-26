@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../hooks/useScrollReveal';
 import { factorDefinitions } from '../data/planets';
 import './Formula.css';
@@ -6,7 +6,6 @@ import './Formula.css';
 export default function Formula() {
   const sectionRef = useRef(null);
   const termRefs = useRef([]);
-  const [assembled, setAssembled] = useState(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -19,7 +18,6 @@ export default function Formula() {
       trigger: el,
       start: 'top 65%',
       onEnter: () => {
-        setAssembled(true);
         gsap.to(terms, {
           opacity: 1,
           scale: 1,
@@ -30,7 +28,6 @@ export default function Formula() {
         });
       },
       onLeaveBack: () => {
-        setAssembled(false);
         gsap.set(terms, { opacity: 0, scale: 0.4, y: 50 });
       },
     });
@@ -44,7 +41,7 @@ export default function Formula() {
         <div className="eyebrow">The metric</div>
         <h2 className="formula__title">How EHS is computed</h2>
         <p className="formula__sub">
-          Six normalized factors, each scored 0\u20131, combined by weight. Missing
+          Six normalized factors, each scored 0-1, combined by weight. Missing
           factors are skipped per-planet, with remaining weights re-normalized to
           still sum to one.
         </p>

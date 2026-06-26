@@ -4,10 +4,10 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Cell,
 } from 'recharts';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { allPlanets, factorDefinitions } from '../data/planets';
+import { allPlanets, dashboardPlanets, factorDefinitions } from '../data/planets';
 import './Dashboard.css';
 
-const DEFAULT_SELECTION = ['earth', 'venus', 'mars', 'kepler-1649c'];
+const DEFAULT_SELECTION = ['earth', 'venus', 'mars', 'kepler-1649-c'];
 const PALETTE = ['#3ef0ff', '#ffd866', '#ff6b4a', '#7d3cff', '#4aff9e'];
 
 export default function Dashboard() {
@@ -49,7 +49,7 @@ export default function Dashboard() {
     <section className="dashboard" id="dashboard" ref={ref}>
       <div className="dashboard__inner">
         <div className="eyebrow">Comparison</div>
-        <h2 className="dashboard__title">Earth, Venus, Mars &mdash; and the candidates</h2>
+        <h2 className="dashboard__title">Earth, Venus, Mars - and the candidates</h2>
         <p className="dashboard__sub">
           Choose up to five planets to compare factor-by-factor. Reference worlds
           (Earth, Venus, Mars, 51 Pegasi b) anchor the scale; the rest are real
@@ -57,7 +57,7 @@ export default function Dashboard() {
         </p>
 
         <div className="dashboard__picker">
-          {allPlanets.map((p) => (
+          {dashboardPlanets.map((p) => (
             <button
               key={p.id}
               className={`dashboard__chip ${selected.includes(p.id) ? 'is-active' : ''}`}
@@ -108,7 +108,7 @@ export default function Dashboard() {
                   labelStyle={{ color: '#e8ecff' }}
                 />
                 <Bar dataKey="EHS" radius={[0, 6, 6, 0]}>
-                  {barData.map((entry, i) => (
+                  {barData.map((entry) => (
                     <Cell key={entry.name} fill={entry.color} />
                   ))}
                 </Bar>

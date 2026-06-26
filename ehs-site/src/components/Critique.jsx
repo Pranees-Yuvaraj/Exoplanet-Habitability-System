@@ -5,12 +5,14 @@ import './Critique.css';
 
 function buildScatterData() {
   const all = [...referencePlanets, ...exoplanets];
-  return all.map((p) => ({
-    name: p.name,
-    insolation: p.insolation,
-    EHS: Math.round(p.EHS * 100),
-    binary: p.binaryHabitable ?? (p.insolation >= 0.25 && p.insolation <= 1.5 && p.radius <= 1.6),
-  }));
+  return all
+    .filter((p) => Number.isFinite(p.insolation) && p.insolation > 0 && Number.isFinite(p.EHS))
+    .map((p) => ({
+      name: p.name,
+      insolation: p.insolation,
+      EHS: Math.round(p.EHS * 100),
+      binary: p.binaryHabitable ?? (p.insolation >= 0.25 && p.insolation <= 1.5 && p.radius <= 1.6),
+    }));
 }
 
 export default function Critique() {
@@ -27,7 +29,7 @@ export default function Critique() {
         <p className="critique__sub">
           Across {critiqueStats.totalScored.toLocaleString()} confirmed exoplanets,
           every planet passing NASA's binary criteria also scores highly on EHS
-          &mdash; zero false positives. But the binary method has a different
+          - zero false positives. But the binary method has a different
           problem.
         </p>
 
@@ -86,7 +88,7 @@ export default function Critique() {
           </ResponsiveContainer>
           <p className="critique__chart-caption">
             Green band marks NASA's accepted flux window. Orange points score
-            &ge;50 on EHS while falling outside the binary criteria &mdash; the
+            &ge;50 on EHS while falling outside the binary criteria - the
             disagreement cluster sits right at the window's edge.
           </p>
         </div>
@@ -96,15 +98,15 @@ export default function Critique() {
           <div className="critique__breakdown-grid">
             <div className="critique__breakdown-item">
               <span className="critique__breakdown-pct mono">{Math.round((critiqueStats.fluxOnly / critiqueStats.disagreements) * 100)}%</span>
-              <span>Fail on flux alone &mdash; size is plausible, flux is just outside NASA's narrow band</span>
+              <span>Fail on flux alone - size is plausible, flux is just outside NASA's narrow band</span>
             </div>
             <div className="critique__breakdown-item">
               <span className="critique__breakdown-pct mono">{Math.round((critiqueStats.radiusOnly / critiqueStats.disagreements) * 100)}%</span>
-              <span>Fail on radius alone &mdash; should be read cautiously, see limitations</span>
+              <span>Fail on radius alone - should be read cautiously, see limitations</span>
             </div>
             <div className="critique__breakdown-item">
               <span className="critique__breakdown-pct mono">{Math.round((critiqueStats.both / critiqueStats.disagreements) * 100)}%</span>
-              <span>Fail on both &mdash; EHS compensates via other strong factors</span>
+              <span>Fail on both - EHS compensates via other strong factors</span>
             </div>
           </div>
         </div>

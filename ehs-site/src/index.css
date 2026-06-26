@@ -1,17 +1,17 @@
 :root {
-  /* Color tokens — cosmic observatory palette */
+  /* Color tokens - cosmic observatory palette */
   --void: #05060a;
   --nebula-navy: #0d1224;
   --nebula-blue: #5b6fff;
   --violet: #7d3cff;
   --cyan: #3ef0ff;
-  --starlight: #e8ecff;
-  --starlight-dim: #9aa3c4;
+  --starlight: #f5f8ff;
+  --starlight-dim: #c5d0ec;
   --amber: #ffd866;
   --danger: #ff4a6b;
   --success: #4aff9e;
-  --panel: rgba(13, 18, 36, 0.55);
-  --panel-border: rgba(91, 111, 255, 0.25);
+  --panel: rgba(13, 18, 36, 0.74);
+  --panel-border: rgba(110, 132, 255, 0.38);
   --panel-border-bright: rgba(62, 240, 255, 0.5);
 
   --font-display: 'Space Grotesk', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;

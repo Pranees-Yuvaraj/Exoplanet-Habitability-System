@@ -5,12 +5,12 @@ const ROADMAP = [
   {
     phase: 'Next',
     title: 'Atmospheric proxy factor',
-    body: 'A derived greenhouse-amplification signal from flux \u00d7 distance \u00d7 expected atmospheric retention, as a stand-in for sparse real atmospheric data.',
+    body: 'A derived greenhouse-amplification signal from flux x distance x expected atmospheric retention, as a stand-in for sparse real atmospheric data.',
   },
   {
     phase: 'Next',
     title: 'Live weight sandbox',
-    body: 'Drag sliders to reweight all six factors in real time and watch the explorer rankings shift \u2014 the interactive feature this dashboard is built to support.',
+    body: 'Drag sliders to reweight all six factors in real time and watch the explorer rankings shift - the interactive feature this dashboard is built to support.',
   },
   {
     phase: 'Planned',

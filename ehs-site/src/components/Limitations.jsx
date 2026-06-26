@@ -4,7 +4,7 @@ import './Limitations.css';
 const LIMITATIONS = [
   {
     title: 'No atmospheric factor',
-    body: "Venus scores 0.97 \u2014 Earth-sized, Earth-density, near-circular orbit \u2014 yet is uninhabitable due to a runaway greenhouse atmosphere. EHS has no factor measuring atmospheric composition, since this data is sparse-to-absent for the vast majority of confirmed exoplanets.",
+    body: "Venus scores 0.97 - Earth-sized, Earth-density, near-circular orbit - yet is uninhabitable due to a runaway greenhouse atmosphere. EHS has no factor measuring atmospheric composition, since this data is sparse-to-absent for the vast majority of confirmed exoplanets.",
   },
   {
     title: 'Eccentricity defaults inflate scores',
@@ -12,7 +12,7 @@ const LIMITATIONS = [
   },
   {
     title: 'Radius tolerance may be too permissive',
-    body: "76% of the disagreement set with NASA's binary cutoff fails on radius. Above ~1.6 Earth radii, planets increasingly tend toward mini-Neptune composition \u2014 EHS's asymmetric scoring may award more credit than the underlying geology justifies.",
+    body: "76% of the disagreement set with NASA's binary cutoff fails on radius. Above ~1.6 Earth radii, planets increasingly tend toward mini-Neptune composition - EHS's asymmetric scoring may award more credit than the underlying geology justifies.",
   },
   {
     title: 'A relative ranking, not a calibrated probability',

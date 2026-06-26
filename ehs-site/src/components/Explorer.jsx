@@ -1,15 +1,22 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { allPlanets } from '../data/planets';
+import { allPlanets, critiqueStats } from '../data/planets';
 import './Explorer.css';
 
 const SORT_OPTIONS = [
   { key: 'EHS', label: 'EHS score' },
-  { key: 'distanceLy', label: 'Distance' },
+  { key: 'radius', label: 'Radius' },
+  { key: 'insolation', label: 'Flux' },
   { key: 'discoveryYear', label: 'Discovery year' },
   { key: 'name', label: 'Name' },
 ];
+
+const PAGE_SIZE = 120;
+
+function formatNumber(value, digits = 2, fallback = 'n/a') {
+  return Number.isFinite(value) ? value.toFixed(digits) : fallback;
+}
 
 export default function Explorer() {
   const ref = useScrollReveal({ y: 30 });
@@ -20,21 +27,25 @@ export default function Explorer() {
 
   const results = useMemo(() => {
     let list = allPlanets.filter((p) =>
-      p.name.toLowerCase().includes(query.toLowerCase())
+      `${p.name} ${p.host ?? ''}`.toLowerCase().includes(query.toLowerCase())
     );
     if (filterType !== 'all') {
       list = list.filter((p) => p.type === filterType);
     }
     list = [...list].sort((a, b) => {
-      const av = a[sortKey] ?? 0;
-      const bv = b[sortKey] ?? 0;
+      const av = a[sortKey];
+      const bv = b[sortKey];
       if (typeof av === 'string') {
-        return sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+        return sortDir === 'asc' ? av.localeCompare(bv ?? '') : (bv ?? '').localeCompare(av);
       }
-      return sortDir === 'asc' ? av - bv : bv - av;
+      const safeA = Number.isFinite(av) ? av : sortDir === 'asc' ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+      const safeB = Number.isFinite(bv) ? bv : sortDir === 'asc' ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+      return sortDir === 'asc' ? safeA - safeB : safeB - safeA;
     });
     return list;
   }, [query, sortKey, sortDir, filterType]);
+
+  const visibleResults = results.slice(0, PAGE_SIZE);
 
   const toggleSort = (key) => {
     if (sortKey === key) {
@@ -51,14 +62,14 @@ export default function Explorer() {
         <div className="eyebrow">Explorer</div>
         <h2 className="explorer__title">Browse the candidates</h2>
         <p className="explorer__sub">
-          Search, filter, and sort every planet in this dataset &mdash; reference
+          Search, filter, and sort every planet in this dataset - reference
           worlds and confirmed exoplanets alike.
         </p>
 
         <div className="explorer__controls">
           <input
             className="explorer__search mono"
-            placeholder="Search by name&hellip;"
+            placeholder="Search by name..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             aria-label="Search planets"
@@ -90,15 +101,20 @@ export default function Explorer() {
                 className={`explorer__sort ${sortKey === opt.key ? 'is-active' : ''}`}
                 onClick={() => toggleSort(opt.key)}
               >
-                {opt.label} {sortKey === opt.key ? (sortDir === 'asc' ? '\u2191' : '\u2193') : ''}
+                {opt.label} {sortKey === opt.key ? (sortDir === 'asc' ? 'up' : 'down') : ''}
               </button>
             ))}
           </div>
         </div>
 
+        <p className="explorer__result-count mono">
+          Showing {Math.min(visibleResults.length, PAGE_SIZE).toLocaleString()} of{' '}
+          {results.length.toLocaleString()} matches from {critiqueStats.totalScored.toLocaleString()} scored exoplanets.
+        </p>
+
         <div className="explorer__grid">
           <AnimatePresence>
-            {results.map((p) => (
+            {visibleResults.map((p) => (
               <motion.div
                 key={p.id}
                 layout
@@ -126,8 +142,8 @@ export default function Explorer() {
                   <span className="explorer__ehs-value mono">{(p.EHS * 100).toFixed(0)}</span>
                 </div>
                 <div className="explorer__card-meta mono">
-                  <span>R {p.radius.toFixed(2)} R\u2295</span>
-                  <span>{p.distanceLy > 0 ? `${p.distanceLy} ly` : 'local'}</span>
+                  <span>R {formatNumber(p.radius)} Earth</span>
+                  <span>Flux {formatNumber(p.insolation)}</span>
                 </div>
                 <p className="explorer__card-blurb">{p.blurb}</p>
               </motion.div>

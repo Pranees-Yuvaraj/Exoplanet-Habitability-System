@@ -6,34 +6,41 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function useScrollReveal(options = {}) {
   const ref = useRef(null);
+  const {
+    selector,
+    y = 40,
+    duration = 0.9,
+    start = 'top 80%',
+    stagger = 0.08,
+  } = options;
 
   useEffect(() => {
     if (!ref.current) return;
     const el = ref.current;
-    const targets = options.selector ? el.querySelectorAll(options.selector) : [el];
+    const targets = selector ? el.querySelectorAll(selector) : [el];
 
     const tween = gsap.fromTo(
       targets,
-      { opacity: 0, y: options.y ?? 40 },
+      { opacity: 0, y },
       {
         opacity: 1,
         y: 0,
-        duration: options.duration ?? 0.9,
+        duration,
         ease: 'power3.out',
-        stagger: options.stagger ?? 0.08,
+        stagger,
         scrollTrigger: {
           trigger: el,
-          start: options.start ?? 'top 80%',
+          start,
           toggleActions: 'play none none reverse',
         },
       }
     );
 
     return () => {
-      tween.scrollTrigger && tween.scrollTrigger.kill();
+      if (tween.scrollTrigger) tween.scrollTrigger.kill();
       tween.kill();
     };
-  }, []);
+  }, [duration, selector, stagger, start, y]);
 
   return ref;
 }

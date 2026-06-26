@@ -47,7 +47,7 @@ export default function ParameterCards() {
         <div className="eyebrow">Six factors</div>
         <h2 className="parameters__title">The parameters, explained</h2>
         <p className="parameters__sub">
-          Each factor is normalized to a 0\u20131 score before weighting. Tap any card
+          Each factor is normalized to a 0-1 score before weighting. Tap any card
           to see how it's defined.
         </p>
         <div className="parameters__grid">

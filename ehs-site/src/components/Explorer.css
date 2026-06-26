@@ -69,6 +69,12 @@
   background: rgba(125, 60, 255, 0.1);
 }
 
+.explorer__result-count {
+  margin-top: 1.25rem;
+  color: var(--starlight-dim);
+  font-size: 0.78rem;
+}
+
 .explorer__grid {
   margin-top: 2.5rem;
   display: grid;

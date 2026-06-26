@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer__inner">
         <span className="footer__brand mono">EHS</span>
         <p>
-          Exoplanet Habitability Score &mdash; a multi-parameter metric for assessing
+          Exoplanet Habitability Score - a multi-parameter metric for assessing
           planetary habitability. Built on data from the NASA Exoplanet Archive.
         </p>
         <div className="footer__meta mono">
