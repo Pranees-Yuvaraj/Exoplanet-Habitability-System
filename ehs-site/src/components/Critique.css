@@ -1,0 +1,124 @@
+.critique {
+  position: relative;
+  z-index: 2;
+  padding: 9rem 1.5rem;
+}
+
+.critique__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.critique__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-top: 1.2rem;
+}
+
+.critique__sub {
+  max-width: 640px;
+  margin: 1.2rem auto 0;
+}
+
+.critique__stats {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.critique__stat {
+  padding: 1.6rem;
+  border-radius: 14px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.critique__stat--highlight {
+  border-color: var(--cyan);
+  background: rgba(62, 240, 255, 0.06);
+  box-shadow: 0 0 30px rgba(62, 240, 255, 0.15);
+}
+
+.critique__stat-value {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--starlight);
+}
+
+.critique__stat--highlight .critique__stat-value {
+  color: var(--cyan);
+}
+
+.critique__stat-label {
+  font-size: 0.78rem;
+  color: var(--starlight-dim);
+  line-height: 1.4;
+}
+
+.critique__chart {
+  margin-top: 3.5rem;
+  padding: 2rem;
+  text-align: left;
+}
+
+.critique__chart h3 {
+  font-size: 0.95rem;
+  color: var(--starlight);
+  margin-bottom: 1rem;
+}
+
+.critique__chart-caption {
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
+  color: var(--starlight-dim);
+}
+
+.critique__breakdown {
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.critique__breakdown h3 {
+  font-size: 0.95rem;
+  color: var(--starlight);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.critique__breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.critique__breakdown-item {
+  padding: 1.4rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.critique__breakdown-pct {
+  font-size: 1.6rem;
+  color: var(--amber);
+}
+
+.critique__breakdown-item span:last-child {
+  font-size: 0.82rem;
+  color: var(--starlight-dim);
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .critique__stats,
+  .critique__breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,79 @@
+.future {
+  position: relative;
+  z-index: 2;
+  padding: 9rem 1.5rem;
+}
+
+.future__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.future__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-top: 1.2rem;
+}
+
+.future__path {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  text-align: left;
+  position: relative;
+}
+
+.future__node {
+  padding: 1.6rem;
+  position: relative;
+}
+
+.future__phase {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.future__phase--next {
+  background: rgba(62, 240, 255, 0.12);
+  color: var(--cyan);
+}
+
+.future__phase--planned {
+  background: rgba(125, 60, 255, 0.12);
+  color: var(--violet);
+}
+
+.future__phase--exploring {
+  background: rgba(255, 216, 102, 0.12);
+  color: var(--amber);
+}
+
+.future__node h3 {
+  font-size: 0.95rem;
+  margin-top: 0.9rem;
+  color: var(--starlight);
+}
+
+.future__node p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .future__path {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .future__path {
+    grid-template-columns: 1fr;
+  }
+}
