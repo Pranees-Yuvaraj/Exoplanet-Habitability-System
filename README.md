@@ -64,7 +64,7 @@ justified rather than hidden inside a model.
 - [x] Scoring model — 6 weighted, normalized factors
 - [x] Model validation against reference cases (Earth, Mars, Venus, 51 Pegasi b)
 - [x] Critique: EHS vs. NASA/PHL binary classification — found and visualized disagreements
-- [ ] Interactive Streamlit app (live weight-adjustment "sandbox", radar charts)
+- [x] Interactive Streamlit app (live weight-adjustment "sandbox", radar charts)
 - [ ] Deployment (Streamlit Community Cloud)
 
 ---
@@ -114,24 +114,46 @@ EHS/
 │   ├── raw_exoplanets.csv
 │   ├── filtered_exoplanets.csv
 │   ├── clean_exoplanets.csv
-│   └── scored_exoplanets.csv
+│   ├── scored_exoplanets.csv
+│   └── scored_exoplanets_partial.csv
 ├── notebooks/
 │   ├── 01_Data_Acquisition.ipynb
 │   ├── 02_EDA_Missingness.ipynb
 │   ├── 03_Cleaning_Features.ipynb
 │   └── 04_Scoring_Model.ipynb
 ├── notes/
-│   ├── Session_01.md
-│   ├── Session_02.md
-│   ├── Session_03.md
-│   ├── Session_04.md
-│   ├── Session_05.md
-│   ├── Session_06.md
-│   ├── Session_07.md
-│   ├── Session_08.md
-│   └── Session_09.md
+│   ├── Session_01.md  …  Session_09.md
 ├── assets/
 │   └── critique_scatter.png
+├── ehs-site/                        # Interactive React + Vite website
+│   ├── public/
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Critique.jsx / .css
+│   │   │   ├── Dashboard.jsx / .css
+│   │   │   ├── Explorer.jsx / .css
+│   │   │   ├── Footer.jsx / .css
+│   │   │   ├── Formula.jsx / .css
+│   │   │   ├── FutureWork.jsx / .css
+│   │   │   ├── Hero.jsx / .css
+│   │   │   ├── HeroPlanet.jsx
+│   │   │   ├── Limitations.jsx / .css
+│   │   │   ├── Motivation.jsx / .css
+│   │   │   ├── Nav.jsx / .css
+│   │   │   ├── ParameterCards.jsx / .css
+│   │   │   ├── StarFieldBackground.jsx
+│   │   │   └── Timeline.jsx / .css
+│   │   ├── data/
+│   │   │   └── planets.js
+│   │   ├── hooks/
+│   │   │   └── useScrollReveal.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -147,6 +169,11 @@ git clone https://github.com/Pranees-Yuvaraj/Exoplanet-Habitability-System.git
 cd Exoplanet-Habitability-System
 pip install -r requirements.txt
 jupyter notebook
+
+To run file :
+cd ehs-site
+npm install
+npm run dev
 ```
 
 Notebooks are numbered in execution order (`01` → `04`); run them sequentially, as each
