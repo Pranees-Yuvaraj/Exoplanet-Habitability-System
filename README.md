@@ -65,7 +65,7 @@ justified rather than hidden inside a model.
 - [x] Model validation against reference cases (Earth, Mars, Venus, 51 Pegasi b)
 - [x] Critique: EHS vs. NASA/PHL binary classification — found and visualized disagreements
 - [x] Interactive Streamlit app (live weight-adjustment "sandbox", radar charts)
-- [ ] Deployment (Streamlit Community Cloud)
+- [x] Deployment (Streamlit Community Cloud)
 
 ---
 
